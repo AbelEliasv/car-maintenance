@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\OwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('cars.index');
 });
+
+Route::resource('cars', CarsController::class);
+Route::resource('owner', OwnerController::class);
